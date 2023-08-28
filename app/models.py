@@ -1,9 +1,6 @@
-from sqlalchemy import MetaData, Column, BigInteger, Text, Integer, TimeStamp
-from flask_sqlalchemy import SQLAlchemy
-from marshmallow import Schema, fields
-from app import app
+from . import db
 
-db = SQLAlchemy(metadata=MetaData()) #metadata=MetaData()
+db = SQLAlchemy()
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -31,10 +28,3 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.user_name}>'
-
-class UserSchema(ma.Schema):
-    class Meta:
-        fields = ('increment', 'user_id', 'user_login', 'user_name', 'user_lang', 'user_balance', 'user_hold', 'user_refill', 'user_date', 'user_unix', 'user_city', 'user_address', 'user_phone', 'user_geocode', 'user_role', 'user_city_id', 'promocode', 'free_delivery_point', 'delivery_rate', 'new_prod_notify')
-
-user_schema = UserSchema()
-users_schema = UserSchema(many=True)

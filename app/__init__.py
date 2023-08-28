@@ -19,3 +19,9 @@ app.debug = True
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 api = Api(app)
+
+# Import views and resources
+from . import views, resources
+
+# Import models and schemas to ensure they are registered with SQLAlchemy and Marshmallow
+from . import models, schemas

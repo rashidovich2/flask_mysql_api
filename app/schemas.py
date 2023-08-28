@@ -1,31 +1,28 @@
-from sqlalchemy import MetaData, Column, BigInteger, Text, Integer, DateTime
-from flask_sqlalchemy import SQLAlchemy
-from marshmallow import Schema, fields
+from . import ma
+from .models import User
 
-#class UserSchema(ma.Schema):
-#        fields = ('user_id', 'increment', 'user_login', 'user_name', 'user_lang', 'user_balance', 'user_hold', 'user_refill', 'user_date', 'user_unix', 'user_city', 'user_ads', 'user_phone', 'user_geocode', 'user_role', 'user_city_id', 'promocode', 'free_delivery_point', 'delivery_rate', 'new_prod_notify')
 
-class UserSchema(ma.Schema):
-    increment = fields.Integer()
-    user_id = fields.Integer()
-    user_login = fields.Str()
-    user_name = fields.Str()
-    user_lang = fields.Str()
-    user_balance = fields.Integer()
-    user_hold = fields.Integer()
-    user_refill = fields.Integer()
-    user_date = fields.DateTime()
-    user_unix = fields.Integer()
-    user_city = fields.Str()
-    user_address = fields.Str()
-    user_phone = fields.Str()
-    user_geocode = fields.Str()
-    user_role = fields.Str()
-    user_city_id = fields.Integer()
-    promocode = fields.Str()
-    free_delivery_point = fields.Integer()
-    delivery_rate = fields.Integer()
-    new_prod_notify = fields.Integer()
+class UserSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = User
 
-user_schema = UserSchema()
-users_schema = UserSchema(many=True)
+    increment = ma.auto_field()
+    user_id = ma.auto_field()
+    user_login = ma.auto_field()
+    user_name = ma.auto_field()
+    user_lang = ma.auto_field()
+    user_balance = ma.auto_field()
+    user_hold = ma.auto_field()
+    user_refill = ma.auto_field()
+    user_date = ma.auto_field()
+    user_unix = ma.auto_field()
+    user_city = ma.auto_field()
+    user_address = ma.auto_field()
+    user_phone = ma.auto_field()
+    user_geocode = ma.auto_field()
+    user_role = ma.auto_field()
+    user_city_id = ma.auto_field()
+    promocode = ma.auto_field()
+    free_delivery_point = ma.auto_field()
+    delivery_rate = ma.auto_field()
+    new_prod_notify = ma.auto_field()

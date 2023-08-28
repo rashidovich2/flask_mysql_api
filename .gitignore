@@ -1,2 +1,11 @@
 
 .env
+app/.DS_Store
+.idea/vcs.xml
+.idea/deployment.xml
+.idea/flask_mysql_api.iml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/misc.xml
+.idea/modules.xml
+.DS_Store
